@@ -7,7 +7,7 @@ import Image from "next/image";
 const SearchFilters = () => {
     return (
         <div>
-            SearchFilters
+            SearchFilters 
         </div>
     )
 }
