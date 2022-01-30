@@ -36,9 +36,49 @@ const PropertyDetails = ({propertyDetails: { price, rentFrequency, rooms, title,
                     {description}
                 </Text>
             </Box>
-            <Flex flexWrap="wrap">
-                 
+            <Flex flexWrap="wrap" textTransform="uppercase" justifyContent="space-between">
+                <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
+                    <Text>Type</Text>
+                    <Text fontWeight="bold">{type}</Text>
+                </Flex>
+                <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
+                    <Text>Purpose</Text>
+                    <Text fontWeight="bold">{purpose}</Text>
+                </Flex>
+                {
+                    furnishingStatus && 
+                    <Flex justifyContent="space-between" w="400px" borderBottom="1px" borderColor="gray.100" p="3">
+                        <Text>Furnishing Status</Text>
+                        <Text fontWeight="bold">{furnishingStatus}</Text>
+                    </Flex>
+                }
             </Flex>
+            <Box>
+                {
+                    amenities.length && <Text fontSize="2xl" fontWeight="black" mt="5">Amenities</Text>
+                }
+                {
+                    <Flex flexWrap="wrap">
+                        {
+                            amenities.map(item => (
+                                item.amenities.map(amenity => (
+                                    <Text 
+                                        key={amenity.text}
+                                        fontWeight="bold"
+                                        color="blue.400"
+                                        fontSize="l"
+                                        p="2"
+                                        background="gray.200"
+                                        margin="1"
+                                        borderRadius="5" 
+                                    >{amenity.text}
+                                    </Text>
+                                )) 
+                            ))
+                        }
+                    </Flex>
+                }
+            </Box>
         </Box>
     </Box>
 )
